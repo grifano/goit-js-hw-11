@@ -6,8 +6,6 @@
 */
 @import url('./reset.css');
 @import url('./fonts.css');
-@import url('./1-timer.css');
-@import url('./2-snackbar.css');
 @import url('./footer.css');
 
 :root {
@@ -49,15 +47,15 @@ body {
 header {
   padding-top: 1.25rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
-
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 section {
   width: 100%;
@@ -69,11 +67,13 @@ section {
   padding: 0 15px;
   max-width: 393px;
 }
-.hero-js-icon {
-  margin-bottom: 20px;
+@media screen and (min-width: 991px) {
+  .container {
+    max-width: 1158px;
+  }
 }
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,96 +81,6 @@ h1 {
   gap: 16px;
   margin-bottom: 24px;
 }
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-h2,
-h3,
-h4 {
-  text-align: center;
-}
-.is-current {
-  position: relative;
-}
-.is-current::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  background-color: #ee7331;
-  height: 2px;
-  width: 100%;
-}
-/* Home Menu */
-.home-menu {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin: 48px 0;
-}
-.home-menu-link {
-  font-size: 28px;
-  text-decoration: underline;
-  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.home-menu-link:hover,
-.task-menu-link:hover,
-.task-menu-link:focus,
-.home-menu-link:focus {
-  color: #ee7331;
-}
-
-/* Task menu */
-.task-header {
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-}
-.logo-goit {
-  display: block;
-  margin-right: 20px;
-}
-.task-menu {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 24px 12px 12px;
-  gap: 16px;
-  flex-wrap: wrap;
-  background-color: #2f4858;
-  border-radius: 0px 8px 8px 0;
-}
-.task-menu-item {
-}
-.task-menu-link {
-  color: #fff;
-  font-size: 18px;
-  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.task-menu-icon {
-  display: block;
-  fill: #fff;
-}
-.task-menu-icon:hover,
-.task-menu-icon:focus {
-  fill: #ee7331;
-  transition: fill 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-@media screen and (max-width: 768px) {
-  .task-header {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-  .logo-goit {
-    margin: 0;
-  }
-  .task-menu {
-    border-radius: 8px;
-  }
-}
-
-/*** Global Homework Styles ***/
 input {
   border-radius: 4px;
   width: 100%;
@@ -209,6 +119,18 @@ button.is-disable {
   background-color: #cfcfcf;
 }
 
+/*** Homework Styles ***/
+.search-input {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 32px;
+}
+.search-input input {
+  margin-right: 8px;
+  max-width: 272px;
+}
+
 /*** iziToast Custom styles ***/
 .error-notification {
   border-radius: 8px;
@@ -223,14 +145,16 @@ button.is-disable {
   .error-notification {
     overflow: hidden;
     padding: 20px !important;
-    font-size: 16px !important;
+    font-size: 16px;
+
+    max-width: 432px;
   }
   .error-notification strong,
   p {
     font-size: inherit !important;
+    line-height: 24px !important;
   }
 }
-
 .iziToast-close {
   min-width: 16px !important;
   height: 16px !important;

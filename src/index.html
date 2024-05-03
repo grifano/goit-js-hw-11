@@ -25,31 +25,21 @@
           alt="goit logo"
         />
       </a>
+      <h1>Homework 10: HTTP Request. Gallery</h1>
     </header>
     <main>
-      <section class="hero">
-        <h1>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"
-            alt="java script logo"
-            width="50"
-            height="50"
-            class="hero-js-icon"
-          />Java Script
-        </h1>
-        <h2>Homework 10: Asynchronous JavaScript, promises</h2>
-        <ul class="home-menu">
-          <li class="home-menu-item">
-            <a class="home-menu-link" href="./1-timer.html">Task 1: Timer</a>
-          </li>
-          <li class="home-menu-item">
-            <a class="home-menu-link" href="./2-snackbar.html"
-              >Task 2: Snackbar</a
-            >
-          </li>
-        </ul>
-        <h3>Author</h3>
-        <h4>Serhii Orlenko</h4>
+      <section class="gallery">
+        <div class="container">
+          <div class="search-input">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search images..."
+            />
+            <button type="button">Search</button>
+          </div>
+          <ul class="gallery-list"></ul>
+        </div>
       </section>
     </main>
     <footer>
@@ -92,5 +82,6 @@
         </li>
       </ul>
     </footer>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

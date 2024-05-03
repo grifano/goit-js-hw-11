@@ -2,9 +2,9 @@
 
 # Java Script
 
-## Module 10: Asynchronous JavaScript, promises
+## Module 11: HTTP Request
 
-### Homework 10
+### Homework 11
 
 ---
 
