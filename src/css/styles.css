@@ -116,7 +116,7 @@ button:focus {
 }
 button.is-disable {
   color: #989898;
-  background-color: #cfcfcf;
+  background-color: #ddd;
 }
 
 /*** Homework Styles ***/
@@ -130,7 +130,6 @@ button.is-disable {
   margin-right: 8px;
   max-width: 272px;
 }
-
 /*** iziToast Custom styles ***/
 .error-notification {
   border-radius: 8px;
