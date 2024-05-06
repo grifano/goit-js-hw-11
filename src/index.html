@@ -30,13 +30,28 @@
     <main>
       <section class="gallery">
         <div class="container">
-          <div class="search-input">
-            <input
-              type="text"
-              id="search-input"
-              placeholder="Search images..."
-            />
-            <button type="button" class="is-disable">Search</button>
+          <div class="search-bar">
+            <form class="search-bar-form">
+              <label class="search-label">
+                <input
+                  type="text"
+                  id="search-bar"
+                  placeholder="Search images..."
+                />
+                <div
+                  class="search-tooltip"
+                  data-text="Provide your keyword for searching, ex: dog, cat, etc."
+                >
+                  <svg class="search-tooltip-icon" width="18" height="18">
+                    <use href="/img/icons.svg#icon-help"></use>
+                  </svg>
+                </div>
+              </label>
+              <button type="submit" class="search-bar-button is-disable">
+                Search
+              </button>
+            </form>
+            <div class="loader"></div>
           </div>
           <ul class="gallery-list"></ul>
         </div>

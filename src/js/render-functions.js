@@ -1,8 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-
-const serachInput = document.querySelector('.search-input');
-const tempPromise = true;
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 iziToast.settings({
   timeout: 5000,
@@ -13,13 +12,26 @@ iziToast.settings({
   close: false,
 });
 
+// Function addLightbox
+export function addLightbox() {
+  const lightbox = new SimpleLightbox('.image-card-link', {
+    caption: true,
+    captionSelector: 'img',
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionDelay: 250,
+    captionPosition: 'bottom',
+  });
+  lightbox.refresh();
+}
+
 // Function: show notification
 export function showNotification() {
   iziToast.error({
     message: `Sorry, there are no images matching your search query. Please try again!`,
     class: 'error-notification',
     timeout: 5000,
-    iconUrl: '/img/bi_x-octagon.svg',
+    iconUrl: '/img/octagon.svg',
     titleColor: '#fff',
     position: 'topRight',
     backgroundColor: '#EF4040',
@@ -47,30 +59,35 @@ export function updateUi(arrayImages) {
         downloads,
       }) => {
         return `<li class="image-card">
-              <img src="${webformatURL}" width="360" height="200" class="image-card__thumb" alt="${tags}">
-              <ul class="image-card__footer">
-                <li>
-                    <p>Likes</p>
-                    <p>${likes}</p>
-                </li>
-                <li>
-                    <p>Views</p>
-                    <p>${views}</p>
-                </li>
-                <li>
-                    <p>Comments</p>
-                    <p>${comments}</p>
-                </li>
-                <li>
-                    <p>Downloads</p>
-                    <p>${downloads}</p>
-                </li>
-              </ul>
+              <a href="${largeImageURL}" class="image-card-link"><img src="${webformatURL}" width="360" height="200" class="image-card-thumb" alt="${tags}">
+                <ul class="image-card-details-list">
+                  <li class="image-card-details-list-item">
+                      <p class="image-card-details-title">Likes</p>
+                      <p class="image-card-details-text">${likes}</p>
+                  </li>
+                  <li class="image-card-details-list-item">
+                      <p class="image-card-details-title">Views</p>
+                      <p class="image-card-details-text">${views}</p>
+                  </li>
+                  <li class="image-card-details-list-item">
+                      <p class="image-card-details-title">Comments</p>
+                      <p class="image-card-details-text">${comments}</p>
+                  </li>
+                  <li class="image-card-details-list-item">
+                      <p class="image-card-details-title">Downloads</p>
+                      <p class="image-card-details-text">${downloads}</p>
+                  </li>
+                </ul>
+              </a>
           </li>`;
       }
     )
     .join('');
+  gallery.innerHTML = '';
   gallery.insertAdjacentHTML('afterbegin', markup);
+
+  // Fire function that create lightbox after image-cards was rendered
+  addLightbox();
 }
 
 // Check user input
@@ -87,4 +104,15 @@ export function getUserValue(event) {
     button.setAttribute('disabled', '');
   }
   return;
+}
+
+// Show Loader
+export function showLoader(status) {
+  const loader = document.querySelector('.loader');
+
+  if (status) {
+    loader.classList.add('is-active');
+  } else {
+    loader.classList.remove('is-active');
+  }
 }
