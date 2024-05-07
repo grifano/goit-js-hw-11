@@ -1,12 +1,7 @@
 import './js/pixabay-api';
 import { fetchImageData } from './js/pixabay-api';
 import './js/render-functions';
-import {
-  updateUi,
-  getUserValue,
-  showLoader,
-  addLightbox,
-} from './js/render-functions';
+import { getUserValue } from './js/render-functions';
 
 const refs = {
   searchForm: document.querySelector('.search-bar-form'),
