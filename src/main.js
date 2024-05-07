@@ -19,7 +19,6 @@ let userSearchRequestValue = '';
 refs.searchInput.addEventListener('input', event => {
   userSearchRequestValue = getUserValue(event);
 });
-// TODO: Fire function when pressed "enter"
 refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
   fetchImageData(userSearchRequestValue);

@@ -3,15 +3,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-iziToast.settings({
-  timeout: 5000,
-  titleColor: '#fff',
-  position: 'topRight',
-  messageColor: '#fff',
-  icon: '',
-  close: false,
-});
-
 // Function addLightbox
 export function addLightbox() {
   const lightbox = new SimpleLightbox('.image-card-link', {
@@ -27,6 +18,15 @@ export function addLightbox() {
 
 // Function: show notification
 export function showNotification() {
+  iziToast.settings({
+    timeout: 5000,
+    titleColor: '#fff',
+    position: 'topRight',
+    messageColor: '#fff',
+    icon: '',
+    close: false,
+  });
+
   iziToast.error({
     message: `Sorry, there are no images matching your search query. Please try again!`,
     class: 'error-notification',

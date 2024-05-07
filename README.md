@@ -4,7 +4,14 @@
 
 ## Module 11: HTTP Request
 
-### Homework 11
+<img src="./src/img/screenshot.webp" alt="java script logo" width="50%"/>
+
+### Users should be able:
+
+- Search and browse images.
+- Submit search queries.
+- Show loading indicators for feedback for users
+- View enlarged images in a modal.
 
 ---
 
