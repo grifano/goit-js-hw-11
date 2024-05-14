@@ -1,7 +1,7 @@
 import './js/pixabay-api';
 import { fetchImageData } from './js/pixabay-api';
 import './js/render-functions';
-import { getUserValue } from './js/render-functions';
+import { getUserValue, updateUi, showLoader } from './js/render-functions';
 
 const refs = {
   searchForm: document.querySelector('.search-bar-form'),
@@ -16,5 +16,14 @@ refs.searchInput.addEventListener('input', event => {
 });
 refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
-  fetchImageData(userSearchRequestValue);
+  showLoader(true);
+  setTimeout(() => {
+    fetchImageData(userSearchRequestValue)
+      .then(data => {
+        const images = data.hits;
+        updateUi(images);
+        showLoader(false);
+      })
+      .catch(error => console.log(error));
+  }, 1000);
 });
