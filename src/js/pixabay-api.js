@@ -1,7 +1,6 @@
 export function fetchImageData(serachRequest) {
   const apiRequestURL = `https://pixabay.com/api/?key=20858658-55430aeeed6a37ac1f56d3c0c&q=${serachRequest}&image_type=photo&orientation=horizontal&safesearch=true`;
 
-  // Use setTimeout method to simulate of slow network delay
   return fetch(apiRequestURL).then(response => {
     if (!response.ok) {
       return;
